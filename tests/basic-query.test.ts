@@ -47,21 +47,22 @@ for (const ctx of contexts) {
       .values({ email: "info@example.com" })
       .execute()
 
-    if (ctx.supportsTransactions) {
-      await db.transaction().execute(async (trx) => {
-        await trx
-          .insertInto("kysely_neon_test")
-          .values({ email: "info@example.com" })
-          .execute()
 
-        await trx
-          .insertInto("kysely_neon_test")
-          .values({ email: "info@example.com" })
-          .execute()
-      })
-    }
+    await db.transaction().execute(async (trx) => {
+      await trx
+        .insertInto("kysely_neon_test")
+        .values({ email: "info@example.com" })
+        .execute()
+
+      await trx
+        .insertInto("kysely_neon_test")
+        .values({ email: "info@example.com" })
+        .execute()
+    })
 
     const result = await db.selectFrom("kysely_neon_test").selectAll().execute()
+
+    console.log(result)
 
     t.truthy(result)
     t.truthy(result[0].email)

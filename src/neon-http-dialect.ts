@@ -1,4 +1,5 @@
 import {
+  CompiledQuery,
   DatabaseConnection,
   DatabaseIntrospector,
   Dialect,
@@ -43,13 +44,9 @@ export class NeonHTTPDialect implements Dialect {
 
 class NeonHTTPDriver implements Driver {
   readonly #config: NeonHTTPDialectConfig
-  readonly #connection: NeonConnection
 
   constructor(config: NeonHTTPDialectConfig) {
     this.#config = config
-    this.#connection = new NeonConnection({
-      query: neon(this.#config.connectionString, { fullResults: true }),
-    })
   }
 
   async init(): Promise<void> {
@@ -57,22 +54,32 @@ class NeonHTTPDriver implements Driver {
   }
 
   async acquireConnection(): Promise<DatabaseConnection> {
-    return this.#connection
+    return new NeonConnection({
+      query: neon(this.#config.connectionString, { fullResults: true }).query,
+    })
   }
 
   async beginTransaction(
-    _: DatabaseConnection,
-    __: TransactionSettings
+    conn: NeonConnection,
+    settings: TransactionSettings
   ): Promise<void> {
-    throw new Error("Transactions are not supported with Neon HTTP connections")
+    if (settings.isolationLevel) {
+      await conn.executeQuery(
+        CompiledQuery.raw(
+          `start transaction isolation level ${settings.isolationLevel}`
+        )
+      )
+    } else {
+      await conn.executeQuery(CompiledQuery.raw("begin"))
+    }
   }
 
-  async commitTransaction(_: DatabaseConnection): Promise<void> {
-    throw new Error("Transactions are not supported with Neon HTTP connections")
+  async commitTransaction(conn: NeonConnection): Promise<void> {
+    await conn.executeQuery(CompiledQuery.raw("commit"))
   }
 
-  async rollbackTransaction(_: DatabaseConnection): Promise<void> {
-    throw new Error("Transactions are not supported with Neon HTTP connections")
+  async rollbackTransaction(conn: NeonConnection): Promise<void> {
+    await conn.executeQuery(CompiledQuery.raw("rollback"))
   }
 
   async releaseConnection(_: DatabaseConnection): Promise<void> {
