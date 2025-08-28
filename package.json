@@ -1,6 +1,6 @@
 {
   "name": "kysely-neon",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -37,7 +37,7 @@
     "esbuild": "^0.17.11",
     "esbuild-register": "^3.4.2",
     "isomorphic-webcrypto": "^2.3.8",
-    "kysely": "^0.26.1",
+    "kysely": "^0.28.0",
     "prettier": "^2.8.4",
     "semantic-release": "^21.0.7",
     "tsup": "^6.7.0",
@@ -46,7 +46,7 @@
   },
   "peerDependencies": {
     "@neondatabase/serverless": "^0.4.26",
-    "kysely": "0.x.x",
+    "kysely": "^0.28.0",
     "ws": "^8.13.0"
   },
   "peerDependenciesMeta": {

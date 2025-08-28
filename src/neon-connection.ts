@@ -27,8 +27,6 @@ export class NeonConnection implements DatabaseConnection {
       const numAffectedRows = BigInt(result.rowCount)
 
       return {
-        // TODO: remove.
-        numUpdatedOrDeletedRows: numAffectedRows,
         numAffectedRows,
         rows: result.rows ?? [],
       }
