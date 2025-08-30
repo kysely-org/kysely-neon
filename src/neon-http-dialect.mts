@@ -1,17 +1,17 @@
 import {
-  DatabaseConnection,
-  DatabaseIntrospector,
-  Dialect,
-  Driver,
+  type DatabaseConnection,
+  type DatabaseIntrospector,
+  type Dialect,
+  type Driver,
   Kysely,
   PostgresAdapter,
   PostgresIntrospector,
   PostgresQueryCompiler,
-  QueryCompiler,
-  TransactionSettings,
+  type QueryCompiler,
+  type TransactionSettings,
 } from "kysely"
 import { neon } from "@neondatabase/serverless"
-import { NeonConnection } from "neon-connection"
+import { NeonConnection } from "./neon-connection.mjs"
 
 interface NeonHTTPDialectConfig {
   connectionString: string

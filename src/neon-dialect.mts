@@ -1,24 +1,24 @@
 import {
   CompiledQuery,
-  DatabaseConnection,
-  DatabaseIntrospector,
-  Dialect,
-  Driver,
+  type DatabaseConnection,
+  type DatabaseIntrospector,
+  type Dialect,
+  type Driver,
   Kysely,
   PostgresAdapter,
   PostgresIntrospector,
   PostgresQueryCompiler,
-  QueryCompiler,
-  TransactionSettings,
+  type QueryCompiler,
+  type TransactionSettings,
 } from "kysely"
 import {
-  ClientConfig,
-  NeonConfig,
+  type ClientConfig,
+  type NeonConfig,
   Pool,
-  PoolClient,
+  type PoolClient,
   neonConfig,
 } from "@neondatabase/serverless"
-import { NeonConnection, PRIVATE_RELEASE_METHOD } from "neon-connection"
+import { NeonConnection, PRIVATE_RELEASE_METHOD } from "./neon-connection.mjs"
 
 type NeonDialectConfig = ClientConfig & Partial<NeonConfig>
 

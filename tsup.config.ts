@@ -1,8 +1,8 @@
 import { defineConfig } from "tsup"
 
 export default defineConfig({
-  dts: true,
-  entry: ["src/index.ts"],
-  external: ["kysely"],
+  clean: true,
+	dts: true,
+  entry: ["src/index.mts"],
   format: ["cjs", "esm"],
 })

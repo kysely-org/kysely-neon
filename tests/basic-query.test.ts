@@ -1,7 +1,7 @@
 import test from "ava"
-import { Generated, Kysely } from "kysely"
+import { type Generated, Kysely } from "kysely"
 import ws from "ws"
-import { NeonDialect, NeonHTTPDialect } from "../src"
+import { NeonDialect, NeonHTTPDialect } from "../src/index.mjs"
 import { neon } from "@neondatabase/serverless"
 
 const connectionString = process.env.NEON_DATABASE_URL!

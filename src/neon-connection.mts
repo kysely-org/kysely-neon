@@ -1,4 +1,4 @@
-import { CompiledQuery, DatabaseConnection, QueryResult } from "kysely"
+import { CompiledQuery, type DatabaseConnection, type QueryResult } from "kysely"
 
 export interface Client {
   query: (sql: string, parameters: any[]) => Promise<any>
