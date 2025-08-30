@@ -11,12 +11,12 @@ permissions:
 
 jobs:
   unit:
-    name: Node.js ${{ node-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         node-version: [20, 22, 24]
+    name: Node.js ${{ matrix.node-version }}
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
