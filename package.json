@@ -19,27 +19,20 @@
     "test": "ava"
   },
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@neondatabase/serverless": "^0.4.26",
-    "@semantic-release/commit-analyzer": "^10.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^10.0.4",
-    "@semantic-release/release-notes-generator": "^11.0.4",
     "@types/node": "^18.14.6",
     "@types/ws": "^8.5.4",
     "ava": "^5.2.0",
     "esbuild": "^0.17.11",
     "esbuild-register": "^3.4.2",
-    "isomorphic-webcrypto": "^2.3.8",
     "kysely": "^0.28.0",
     "prettier": "^2.8.4",
-    "semantic-release": "^21.0.7",
     "tsup": "^6.7.0",
     "typescript": "^4.9.5",
     "ws": "^8.13.0"
@@ -53,5 +46,6 @@
     "ws": {
       "optional": true
     }
-  }
+  },
+  "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b"
 }
