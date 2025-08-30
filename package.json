@@ -53,11 +53,13 @@
     "@neondatabase/serverless": "^1.0.1",
     "@tsconfig/node24": "^24.0.1",
     "@types/node": "^24.3.0",
+    "@types/ws": "^8.18.1",
     "kysely": "^0.28.0",
     "std-env": "^3.9.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "ws": "^8.18.3"
   },
   "peerDependencies": {
     "@neondatabase/serverless": "^1",

@@ -1,5 +1,6 @@
 import { neon, neonConfig, Pool } from '@neondatabase/serverless'
 import { type Generated, Kysely, PostgresDialect } from 'kysely'
+import ws from 'ws'
 import { NeonHTTPDialect } from '..'
 
 // https://neon.com/guides/local-development-with-neon#connect-your-app
@@ -8,7 +9,8 @@ const PROXY_HTTP_PORT = 4444
 
 neonConfig.fetchEndpoint = `http://${PROXY_HOST}:${PROXY_HTTP_PORT}/sql`
 neonConfig.useSecureWebSocket = false
-neonConfig.webSocketConstructor = WebSocket
+neonConfig.webSocketConstructor =
+	typeof WebSocket !== 'undefined' ? WebSocket : ws
 neonConfig.wsProxy = `${PROXY_HOST}:${PROXY_HTTP_PORT}/v2`
 
 const CONNECTION_STRING = `postgres://postgres:postgres@${PROXY_HOST}:5432/main`
