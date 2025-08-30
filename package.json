@@ -24,6 +24,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "author": "Severin Ibarluzea",
+  "license": "MIT",
   "devDependencies": {
     "@neondatabase/serverless": "^0.4.26",
     "@types/node": "^18.14.6",
