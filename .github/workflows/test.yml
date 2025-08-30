@@ -41,5 +41,8 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Start Neon
+        run: docker compose up -d --wait
+
       - name: Test
         run: pnpm test
