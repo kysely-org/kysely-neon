@@ -29,10 +29,10 @@ jobs:
       - name: Cache Docker images
         uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
         with:
-          key: docker-${{ hashFiles('docker-compose.yml') }}
-          path: /var/lib/docker
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-docker-${{ hashFiles('docker-compose.yml') }}
           restore-keys: |
-            docker-
+            ${{ runner.os }}-docker-
 
       - name: Start Neon
         run: |
