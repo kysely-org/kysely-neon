@@ -1,8 +1,8 @@
-import { defineConfig } from "tsup"
+import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  clean: true,
+	clean: true,
 	dts: true,
-  entry: ["src/index.mts"],
-  format: ["cjs", "esm"],
+	entry: ['src/index.mts'],
+	format: ['cjs', 'esm'],
 })
