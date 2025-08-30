@@ -1,5 +1,5 @@
 import { neon, neonConfig, Pool } from '@neondatabase/serverless'
-import { PostgresDialect } from 'kysely'
+import { type GeneratedAlways, Kysely, PostgresDialect } from 'kysely'
 import { NeonHTTPDialect } from '..'
 
 // https://neon.com/guides/local-development-with-neon#connect-your-app
@@ -24,4 +24,21 @@ const DIALECTS = {
 
 export const SUPPORTED_DIALECTS = Object.keys(
 	DIALECTS,
-) as unknown as keyof typeof DIALECTS
+) as (keyof typeof DIALECTS)[]
+
+export interface TestContext {
+	db: Kysely<Database>
+}
+
+export interface Database {
+	person: {
+		id: GeneratedAlways<string>
+		name: string
+	}
+}
+
+export async function initTest(
+	dialect: keyof typeof DIALECTS,
+): Promise<TestContext> {
+	return { db: new Kysely({ dialect: DIALECTS[dialect] }) }
+}
