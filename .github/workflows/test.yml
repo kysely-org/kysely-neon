@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   unit:
-    name: Unit Tests
+    name: Node.js ${{ node-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
