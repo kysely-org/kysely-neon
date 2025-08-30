@@ -14,7 +14,9 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-latest
     strategy:
-      node-version: [20, 22, 24]
+      fail-fast: false
+      matrix:
+        node-version: [20, 22, 24]
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
