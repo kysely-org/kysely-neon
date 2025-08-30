@@ -26,6 +26,9 @@ jobs:
 
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
+      - name: Start Neon
+        run: docker compose up -d
+
       - name: Install pnpm
         uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
 
@@ -35,16 +38,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
 
-      - name: Start Docker services
-        run: docker compose up -d
-
       - name: Install dependencies
         run: pnpm i
 
       - name: Build
         run: pnpm build
 
-      - name: Wait for Docker services
+      - name: Wait for Neon ready
         run: docker compose up --wait
 
       - name: Test
