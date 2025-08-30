@@ -35,14 +35,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
 
+      - name: Start Docker services
+        run: docker compose up -d
+
       - name: Install dependencies
         run: pnpm i
 
       - name: Build
         run: pnpm build
 
-      - name: Start Neon
-        run: docker compose up -d --wait
+      - name: Wait for Docker services
+        run: docker compose up --wait
 
       - name: Test
         run: pnpm test
