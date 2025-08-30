@@ -42,3 +42,11 @@ export async function initTest(
 ): Promise<TestContext> {
 	return { db: new Kysely({ dialect: DIALECTS[dialect] }) }
 }
+
+export async function resetState(): Promise<void> {
+	await neon(CONNECTION_STRING).transaction((trx) => [
+		trx`drop table if exists person`,
+		trx`create table person (id uuid primary key default gen_random_uuid(), name varchar(255) not null)`,
+		trx`insert into person (id, name) values ('48856ed4-9f1f-4111-ba7f-6092a1be96eb', 'moshe'), ('28175ebc-02ec-4c87-9a84-b3d25193fefa', 'haim'), ('cbbffbea-47d5-40ec-a98d-518b48e2bb5d', 'rivka')`,
+	])
+}
