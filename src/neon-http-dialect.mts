@@ -1,3 +1,4 @@
+import { neon } from '@neondatabase/serverless'
 import {
 	type DatabaseConnection,
 	type DatabaseIntrospector,
@@ -10,7 +11,6 @@ import {
 	type QueryCompiler,
 	type TransactionSettings,
 } from 'kysely'
-import { neon } from '@neondatabase/serverless'
 import { NeonConnection } from './neon-connection.mjs'
 
 interface NeonHTTPDialectConfig {

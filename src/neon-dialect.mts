@@ -1,4 +1,11 @@
 import {
+	type ClientConfig,
+	type NeonConfig,
+	neonConfig,
+	Pool,
+	type PoolClient,
+} from '@neondatabase/serverless'
+import {
 	CompiledQuery,
 	type DatabaseConnection,
 	type DatabaseIntrospector,
@@ -11,13 +18,6 @@ import {
 	type QueryCompiler,
 	type TransactionSettings,
 } from 'kysely'
-import {
-	type ClientConfig,
-	type NeonConfig,
-	Pool,
-	type PoolClient,
-	neonConfig,
-} from '@neondatabase/serverless'
 import { NeonConnection, PRIVATE_RELEASE_METHOD } from './neon-connection.mjs'
 
 type NeonDialectConfig = ClientConfig & Partial<NeonConfig>
