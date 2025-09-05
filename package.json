@@ -24,7 +24,7 @@
     "check:exports": "attw . --pack",
     "check:types": "tsc --noEmit",
     "prepublishOnly": "biome check && pnpm build && pnpm check:exports",
-    "test": "ava"
+    "test": "vitest"
   },
   "files": [
     "dist"
@@ -50,25 +50,20 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
     "@biomejs/biome": "^2.2.2",
-    "@neondatabase/serverless": "^0.4.26",
+    "@neondatabase/serverless": "^1.0.1",
     "@tsconfig/node24": "^24.0.1",
-    "@types/node": "^18.14.6",
-    "@types/ws": "^8.5.4",
+    "@types/node": "^24.3.0",
+    "@types/ws": "^8.18.1",
     "kysely": "^0.28.0",
-    "prettier": "^2.8.4",
+    "std-env": "^3.9.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "ws": "^8.13.0"
+    "vitest": "^3.2.4",
+    "ws": "^8.18.3"
   },
   "peerDependencies": {
-    "@neondatabase/serverless": "^0.4.26",
-    "kysely": "^0.28.0",
-    "ws": "^8.13.0"
-  },
-  "peerDependenciesMeta": {
-    "ws": {
-      "optional": true
-    }
+    "@neondatabase/serverless": "^1",
+    "kysely": "^0.28"
   },
   "engines": {
     "node": ">=20"
