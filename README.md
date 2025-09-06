@@ -67,3 +67,7 @@ const db = new Kysely<Database>({
 
 const people = await db.selectFrom("person").selectAll().execute();
 ```
+
+## Acknowledgements
+
+[seveibar](https://github.com/seveibar) who created and maintained this library. :heart:
