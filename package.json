@@ -1,6 +1,6 @@
 {
   "name": "kysely-neon",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Kysely dialect for Neon",
   "type": "module",
   "repository": "git://github.com/kysely-org/kysely-neon.git",
