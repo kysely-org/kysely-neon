@@ -8,14 +8,14 @@ import {
 	PostgresQueryCompiler,
 	type QueryCompiler,
 } from 'kysely'
-import type { NeonHTTPDialectConfig } from './http-dialect-config.mjs'
-import { NeonHTTPDriver } from './http-driver.mjs'
+import type { NeonDialectConfig } from './dialect-config.mjs'
+import { NeonDriver } from './driver.mjs'
 import { freeze } from './utils.mjs'
 
-export class NeonHTTPDialect implements Dialect {
-	readonly #config: NeonHTTPDialectConfig
+export class NeonDialect implements Dialect {
+	readonly #config: NeonDialectConfig
 
-	constructor(config: NeonHTTPDialectConfig) {
+	constructor(config: NeonDialectConfig) {
 		this.#config = freeze({ ...config })
 	}
 
@@ -24,7 +24,7 @@ export class NeonHTTPDialect implements Dialect {
 	}
 
 	createDriver(): Driver {
-		return new NeonHTTPDriver(this.#config)
+		return new NeonDriver(this.#config)
 	}
 
 	// biome-ignore lint/suspicious/noExplicitAny: perfectly fine.
