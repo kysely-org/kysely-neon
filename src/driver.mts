@@ -6,16 +6,16 @@ import type {
 	TransactionSettings,
 } from 'kysely'
 import type {
-	NeonHTTPClient,
-	NeonHTTPDialectConfig,
-	NeonHTTPQueryResult,
-} from './http-dialect-config.mjs'
+	NeonClient,
+	NeonDialectConfig,
+	NeonQueryResult,
+} from './dialect-config.mjs'
 
-export class NeonHTTPDriver implements Driver {
-	readonly #config: NeonHTTPDialectConfig
+export class NeonDriver implements Driver {
+	readonly #config: NeonDialectConfig
 	#connection: DatabaseConnection | undefined
 
-	constructor(config: NeonHTTPDialectConfig) {
+	constructor(config: NeonDialectConfig) {
 		this.#config = config
 	}
 
@@ -29,7 +29,7 @@ export class NeonHTTPDriver implements Driver {
 		_settings: TransactionSettings,
 	): Promise<void> {
 		throw new Error(
-			"NeonHTTPDialect doesn't support interactive transactions, while Kysely doesn't support batch requests (yet).",
+			"NeonDialect doesn't support interactive transactions, while Kysely doesn't support batch requests (yet).",
 		)
 	}
 
@@ -44,8 +44,8 @@ export class NeonHTTPDriver implements Driver {
 	async init(): Promise<void> {
 		const { neon } = this.#config
 
-		this.#connection ||= new NeonHTTPDatabaseConnection(
-			isNeonHTTPClient(neon) ? neon : await neon(),
+		this.#connection ||= new NeonDatabaseConnection(
+			isNeon(neon) ? neon : await neon(),
 		)
 	}
 
@@ -58,21 +58,21 @@ export class NeonHTTPDriver implements Driver {
 	}
 }
 
-function isNeonHTTPClient(thing: unknown): thing is NeonHTTPClient {
+function isNeon(thing: unknown): thing is NeonClient {
 	return (
 		typeof thing === 'function' && 'query' in thing && 'transaction' in thing
 	)
 }
 
-class NeonHTTPDatabaseConnection implements DatabaseConnection {
-	readonly #neon: NeonHTTPClient
+class NeonDatabaseConnection implements DatabaseConnection {
+	readonly #neon: NeonClient
 
-	constructor(neon: NeonHTTPClient) {
+	constructor(neon: NeonClient) {
 		this.#neon = neon
 	}
 
 	async executeQuery<R>(compiledQuery: CompiledQuery): Promise<QueryResult<R>> {
-		const result: NeonHTTPQueryResult = await this.#neon.query(
+		const result: NeonQueryResult = await this.#neon.query(
 			compiledQuery.sql,
 			[...compiledQuery.parameters],
 			{ arrayMode: false, fullResults: true },
@@ -96,6 +96,6 @@ class NeonHTTPDatabaseConnection implements DatabaseConnection {
 		_compiledQuery: CompiledQuery,
 		_chunkSize?: number,
 	): AsyncIterableIterator<QueryResult<R>> {
-		throw new Error("NeonHTTPDialect doesn't support streaming.")
+		throw new Error("NeonDialect doesn't support streaming.")
 	}
 }

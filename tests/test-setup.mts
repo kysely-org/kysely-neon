@@ -1,7 +1,7 @@
 import { neon, neonConfig, Pool } from '@neondatabase/serverless'
 import { type Generated, Kysely, PostgresDialect } from 'kysely'
 import ws from 'ws'
-import { NeonHTTPDialect } from '..'
+import { NeonDialect } from '..'
 
 // https://neon.com/guides/local-development-with-neon#connect-your-app
 const PROXY_HOST = 'db.localtest.me'
@@ -16,10 +16,10 @@ neonConfig.wsProxy = `${PROXY_HOST}:${PROXY_HTTP_PORT}/v2`
 const CONNECTION_STRING = `postgres://postgres:postgres@${PROXY_HOST}:5432/main`
 
 const DIALECTS = {
-	http: new NeonHTTPDialect({
+	neon: new NeonDialect({
 		neon: () => neon(CONNECTION_STRING),
 	}),
-	ws: new PostgresDialect({
+	pool: new PostgresDialect({
 		pool: async () => new Pool({ connectionString: CONNECTION_STRING }),
 	}),
 } as const
