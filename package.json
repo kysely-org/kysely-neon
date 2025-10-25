@@ -59,7 +59,7 @@
     "@types/node": "^24.3.0",
     "@types/ws": "^8.18.1",
     "kysely": "^0.28.8",
-    "std-env": "^3.9.0",
+    "std-env": "^3.10.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.3",
