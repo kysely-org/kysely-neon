@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
-    "@biomejs/biome": "^2.2.2",
+    "@biomejs/biome": "^2.3.0",
     "@neondatabase/serverless": "^1.0.2",
     "@tsconfig/node24": "^24.0.1",
     "@types/node": "^24.3.0",
