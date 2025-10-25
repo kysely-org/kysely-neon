@@ -5,7 +5,6 @@
 	},
 	"javascript": {
 		"formatter": {
-			"lineEnding": "lf",
 			"quoteStyle": "single",
 			"semicolons": "asNeeded"
 		}
