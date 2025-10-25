@@ -1,6 +1,7 @@
 import {
 	type DatabaseIntrospector,
 	type Dialect,
+	type DialectAdapter,
 	type Driver,
 	type Kysely,
 	PostgresIntrospector,
@@ -19,7 +20,7 @@ export class NeonDialect implements Dialect {
 		this.#config = freeze({ ...config })
 	}
 
-	createAdapter() {
+	createAdapter(): DialectAdapter {
 		return new NeonAdapter()
 	}
 

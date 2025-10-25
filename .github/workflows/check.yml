@@ -41,3 +41,6 @@ jobs:
 
       - name: Exports
         run: pnpm check:exports
+
+      - name: JSR dry run
+        run: pnpm jsr publish --dry-run
