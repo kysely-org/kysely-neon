@@ -27,8 +27,8 @@ importers:
         specifier: ^8.18.1
         version: 8.18.1
       kysely:
-        specifier: ^0.28.0
-        version: 0.28.5
+        specifier: ^0.28.8
+        version: 0.28.8
       std-env:
         specifier: ^3.9.0
         version: 3.9.0
@@ -689,8 +689,8 @@ packages:
   js-tokens@9.0.1:
     resolution: {integrity: sha512-mxa9E9ITFOt0ban3j6L5MpjwegGz6lBQmM1IJkWeBZGcMxto50+eWdjC/52xDbS2vy0k7vIMK0Fe2wfL9OQSpQ==}
 
-  kysely@0.28.5:
-    resolution: {integrity: sha512-rlB0I/c6FBDWPcQoDtkxi9zIvpmnV5xoIalfCMSMCa7nuA6VGA3F54TW9mEgX4DVf10sXAWCF5fDbamI/5ZpKA==}
+  kysely@0.28.8:
+    resolution: {integrity: sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==}
     engines: {node: '>=20.0.0'}
 
   lilconfig@3.1.3:
@@ -1673,7 +1673,7 @@ snapshots:
 
   js-tokens@9.0.1: {}
 
-  kysely@0.28.5: {}
+  kysely@0.28.8: {}
 
   lilconfig@3.1.3: {}
 
