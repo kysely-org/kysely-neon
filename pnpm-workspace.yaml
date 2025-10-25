@@ -1,5 +1,7 @@
 packages:
   - /
 
+minimumReleaseAge: 1440 # install package versions that are at least 1 day old (in minutes).
+
 onlyBuiltDependencies:
-  - esbuild
+  - esbuild@0.25.9
