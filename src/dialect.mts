@@ -3,11 +3,11 @@ import {
 	type Dialect,
 	type Driver,
 	type Kysely,
-	PostgresAdapter,
 	PostgresIntrospector,
 	PostgresQueryCompiler,
 	type QueryCompiler,
 } from 'kysely'
+import { NeonAdapter } from './adapter.mjs'
 import type { NeonDialectConfig } from './dialect-config.mjs'
 import { NeonDriver } from './driver.mjs'
 import { freeze } from './utils.mjs'
@@ -20,7 +20,7 @@ export class NeonDialect implements Dialect {
 	}
 
 	createAdapter() {
-		return new PostgresAdapter()
+		return new NeonAdapter()
 	}
 
 	createDriver(): Driver {
