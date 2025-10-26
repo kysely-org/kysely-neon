@@ -1,7 +1,7 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
 	"name": "@kysely/neon",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"license": "MIT",
 	"exports": "./src/index.mts",
 	"imports": {
