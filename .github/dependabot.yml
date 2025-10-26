@@ -6,10 +6,13 @@
 version: 2
 updates:
   - package-ecosystem: npm
+    versioning-strategy: increase
     directories:
       - /
     schedule:
       interval: daily
+    cooldown:
+      default-days: 1
     reviewers:
       - igalklebanov
 
