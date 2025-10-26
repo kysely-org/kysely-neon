@@ -5,14 +5,24 @@
 import { writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'pathe'
-import jsrJson from '../jsr.json' with { type: 'json' }
+import jsrJson from '../deno.json' with { type: 'json' }
 import pkgJson from '../package.json' with { type: 'json' }
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const { version } = pkgJson
+const { devDependencies, version } = pkgJson
 
 writeFileSync(
-	join(__dirname, '../jsr.json'),
-	`${JSON.stringify({ ...jsrJson, version }, null, 2)}\n`,
+	join(__dirname, '../deno.json'),
+	`${JSON.stringify(
+		{
+			...jsrJson,
+			imports: {
+				kysely: `jsr:@kysely/kysely@${devDependencies.kysely.replace('^', '')}`,
+			},
+			version,
+		},
+		null,
+		2,
+	)}\n`,
 )
