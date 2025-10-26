@@ -47,7 +47,7 @@
     "prepublishOnly": "biome check && pnpm build && pnpm check:exports",
     "script:align-versions": "node --experimental-strip-types scripts/align-versions.mts",
     "test": "vitest",
-    "version": "pnpm script:align-versions && git add ."
+    "version": "pnpm script:align-versions && biome format --write && git add ."
   },
   "peerDependencies": {
     "@neondatabase/serverless": "^1",
