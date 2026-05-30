@@ -6,10 +6,6 @@ export default defineConfig({
 		profile: 'esm-only',
 	},
 	entry: 'src/index.mts',
-	exports: {
-		enabled: true,
-	},
-	publint: {
-		enabled: true,
-	},
+	exports: true,
+	publint: true,
 })
