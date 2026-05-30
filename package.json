@@ -1,6 +1,6 @@
 {
 	"name": "kysely-neon",
-	"version": "2.0.2",
+	"version": "3.0.0",
 	"description": "Kysely dialect for Neon",
 	"type": "module",
 	"repository": {

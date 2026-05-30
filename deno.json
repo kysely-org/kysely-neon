@@ -1,11 +1,11 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
 	"name": "@kysely/neon",
-	"version": "2.0.2",
+	"version": "3.0.0",
 	"license": "MIT",
 	"exports": "./src/index.mts",
 	"imports": {
-		"kysely": "jsr:@kysely/kysely@0.28.8"
+		"kysely": "jsr:@kysely/kysely@0.29.2"
 	},
 	"publish": {
 		"include": [
