@@ -1,4 +1,5 @@
 import type {
+	AbortableOperationOptions,
 	CompiledQuery,
 	DatabaseConnection,
 	Driver,
@@ -41,11 +42,11 @@ export class NeonDriver implements Driver {
 		// noop
 	}
 
-	async init(): Promise<void> {
+	async init(options?: AbortableOperationOptions): Promise<void> {
 		const { neon } = this.#config
 
 		this.#connection ||= new NeonDatabaseConnection(
-			isNeon(neon) ? neon : await neon(),
+			isNeon(neon) ? neon : await neon(options),
 		)
 	}
 

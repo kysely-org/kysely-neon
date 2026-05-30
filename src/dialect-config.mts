@@ -1,5 +1,11 @@
+import type { AbortableOperationOptions } from 'kysely'
+
 export interface NeonDialectConfig {
-	neon: NeonClient | (() => NeonClient | Promise<NeonClient>)
+	neon:
+		| NeonClient
+		| ((
+				options?: AbortableOperationOptions,
+		  ) => NeonClient | Promise<NeonClient>)
 }
 
 export interface NeonClient {
