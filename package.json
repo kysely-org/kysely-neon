@@ -1,77 +1,70 @@
 {
-  "name": "kysely-neon",
-  "version": "2.0.2",
-  "description": "Kysely dialect for Neon",
-  "type": "module",
-  "repository": "git://github.com/kysely-org/kysely-neon.git",
-  "homepage": "https://kysely.dev",
-  "author": "Severin Ibarluzea",
-  "license": "MIT",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "neon",
-    "neondatabase",
-    "postgres",
-    "pg",
-    "serverless",
-    "kysely",
-    "query builder",
-    "sql",
-    "typescript",
-    "database",
-    "type-safe",
-    "dialect"
-  ],
-  "scripts": {
-    "biome": "biome",
-    "build": "tsup",
-    "check:exports": "attw . --pack",
-    "check:types": "tsc --noEmit",
-    "prepublishOnly": "biome check && pnpm build && pnpm check:exports",
-    "script:align-versions": "node --experimental-strip-types scripts/align-versions.mts",
-    "test": "vitest",
-    "version": "pnpm script:align-versions && biome format --write && git add ."
-  },
-  "peerDependencies": {
-    "@neondatabase/serverless": "^1",
-    "kysely": "^0.28"
-  },
-  "devDependencies": {
-    "@arethetypeswrong/cli": "^0.18.2",
-    "@biomejs/biome": "^2.3.0",
-    "@neondatabase/serverless": "^1.0.2",
-    "@tsconfig/node24": "^24.0.1",
-    "@types/node": "^24.9.1",
-    "@types/ws": "^8.18.1",
-    "jsr": "^0.13.5",
-    "kysely": "^0.28.8",
-    "pathe": "^2.0.3",
-    "std-env": "^3.10.0",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.3",
-    "ws": "^8.18.3"
-  },
-  "sideEffects": false,
-  "engines": {
-    "node": ">=20"
-  },
-  "packageManager": "pnpm@10.19.1-oidc-test.3+sha512.e5961a4b56bb37620f97b65da4ca56216634bf39ed358eda925f0f036534d458fa249d93ed0021410523f8bb7ed8512b61fe5532ed3e81777793366c6be026b5"
+	"name": "kysely-neon",
+	"version": "2.0.2",
+	"description": "Kysely dialect for Neon",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kysely-org/kysely-neon.git"
+	},
+	"homepage": "https://kysely.dev",
+	"author": "Severin Ibarluzea",
+	"license": "MIT",
+	"types": "./dist/index.d.mts",
+	"exports": {
+		".": "./dist/index.mjs",
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"dist"
+	],
+	"keywords": [
+		"neon",
+		"neondatabase",
+		"postgres",
+		"pg",
+		"serverless",
+		"kysely",
+		"query builder",
+		"sql",
+		"typescript",
+		"database",
+		"type-safe",
+		"dialect"
+	],
+	"scripts": {
+		"biome": "biome",
+		"build": "tsdown",
+		"check:types": "tsc --noEmit",
+		"prepublishOnly": "biome check && pnpm build",
+		"script:align-versions": "node --experimental-strip-types scripts/align-versions.mts",
+		"test": "vitest",
+		"version": "pnpm script:align-versions && biome format --write && git add ."
+	},
+	"peerDependencies": {
+		"@neondatabase/serverless": "^1",
+		"kysely": "^0.29"
+	},
+	"devDependencies": {
+		"@arethetypeswrong/core": "0.18.2",
+		"@biomejs/biome": "2.4.16",
+		"@neondatabase/serverless": "1.1.0",
+		"@tsconfig/node24": "24.0.4",
+		"@types/node": "25.9.1",
+		"@types/ws": "8.18.1",
+		"jsr": "0.14.3",
+		"kysely": "0.29.2",
+		"pathe": "2.0.3",
+		"publint": "0.3.21",
+		"std-env": "4.1.0",
+		"tsdown": "0.22.1",
+		"typescript": "6.0.3",
+		"vitest": "4.1.7",
+		"ws": "8.21.0"
+	},
+	"sideEffects": false,
+	"engines": {
+		"node": ">=22"
+	},
+	"packageManager": "pnpm@11.5.0+sha512.dbfcc4f81cf48597afd4bc391ffdf12c11f1a9fb83a395bfa6b0a2d9cc2fd8ffebafdb1ccbd529632153f793904c2615b7f09fe1a345473fd1c35845172a8eb1"
 }
