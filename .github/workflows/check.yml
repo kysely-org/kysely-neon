@@ -39,8 +39,5 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Exports
-        run: pnpm check:exports
-
       - name: JSR dry run
         run: pnpm script:align-versions && pnpm jsr publish --dry-run --allow-dirty

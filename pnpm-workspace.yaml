@@ -1,7 +1,36 @@
 packages:
   - /
 
-minimumReleaseAge: 1440 # install package versions that are at least 1 day old (in minutes).
+# Allow (true) or disallow (false) script execution.
+# https://pnpm.io/settings#allowbuilds
+allowBuilds:
+  esbuild@0.25.9: true # vitest@4.1.7 dependency.
 
-onlyBuiltDependencies:
-  - esbuild@0.25.9
+# Deduplicate peer dependencies.
+# see: https://github.com/pnpm/pnpm/issues/11070
+dedupePeers: true
+
+# Deny package installs that don't match the supported Node.js version/s.
+# https://pnpm.io/settings#enginestrict
+engineStrict: true
+
+# avoid having to use `-w` when installing packages at project root.
+# https://pnpm.io/settings#ignoreworkspacerootcheck
+ignoreWorkspaceRootCheck: true
+
+# fail and don't fallback to "too new" version of packages when none of their other
+# versions match `minimumReleaseAge` range (default is 1 day).
+# https://pnpm.io/settings#minimumreleaseagestrict
+minimumReleaseAgeStrict: true
+
+# how versions get prefixed in `package.json`.
+# https://pnpm.io/settings#saveprefix
+savePrefix: ""
+
+# Fail if a package's trust level has decreased compared to previous releases.
+# https://pnpm.io/settings#trustpolicy
+trustPolicy: no-downgrade
+
+# Prompt before running custom scripts if `node_modules` is out of date.
+# https://pnpm.io/settings#verifydepsbeforerun
+verifyDepsBeforeRun: prompt
