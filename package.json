@@ -9,6 +9,9 @@
 	},
 	"homepage": "https://kysely.dev",
 	"author": "Severin Ibarluzea",
+	"contributors": [
+		"Igal Klebanov <igalklebanov@gmail.com>"
+	],
 	"license": "MIT",
 	"types": "./dist/index.d.mts",
 	"exports": {
